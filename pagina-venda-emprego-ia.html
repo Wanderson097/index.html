@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Emprego com IA: currículo, LinkedIn e entrevista</title>
+<meta name="description" content="Modelos de currículo e comandos prontos para usar na IA e se candidatar com mais confiança.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;800&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07050F; --ink:#EEEAFF; --muted:#A9A1CC; --violet:#8B5CF6; --violet2:#6D28D9; --glow:#C4B5FD;
+  --card:rgba(139,92,246,.08); --line:rgba(167,139,250,.28);
+  --display:"Outfit",system-ui,sans-serif; --body:"Nunito Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{color:var(--ink);font:400 1.0625rem/1.6 var(--body);background-color:var(--bg);
+  background-image:
+    radial-gradient(60rem 36rem at 85% -5%,rgba(139,92,246,.35),transparent 60%),
+    radial-gradient(50rem 30rem at -10% 45%,rgba(109,40,217,.28),transparent 60%),
+    radial-gradient(45rem 30rem at 100% 85%,rgba(168,85,247,.22),transparent 60%),
+    linear-gradient(rgba(167,139,250,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(167,139,250,.06) 1px,transparent 1px);
+  background-size:auto,auto,auto,44px 44px,44px 44px;background-attachment:fixed}
+section{padding:4.5rem 1.25rem}
+.wrap{max-width:960px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h1{font-weight:800;font-size:clamp(2.3rem,6.5vw,4rem);max-width:14ch;text-shadow:0 0 40px rgba(139,92,246,.6)}
+h2{font-weight:800;font-size:clamp(1.65rem,4.5vw,2.4rem);margin-bottom:1.5rem;max-width:22ch}
+h3{font-weight:500;font-size:1.2rem}
+p{max-width:60ch}
+.btn{display:inline-block;border:0;cursor:pointer;background:linear-gradient(135deg,var(--violet),var(--violet2));color:#fff;
+  font:700 1.1rem var(--body);padding:1rem 2rem;border-radius:12px;text-decoration:none;
+  box-shadow:0 0 28px rgba(139,92,246,.55);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+.btn:focus-visible,summary:focus-visible,textarea:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
+.note{display:block;margin-top:.75rem;font-size:.95rem;color:var(--muted)}
+.hero .wrap{display:grid;gap:2.5rem;align-items:center}
+.hero p.lead{margin:1.25rem 0 2rem;font-size:1.2rem;color:var(--muted)}
+@media(min-width:800px){.hero .wrap{grid-template-columns:1.2fr 1fr}}
+.prompt{background:rgba(14,10,30,.85);border:1px solid var(--line);color:#E8ECFF;border-radius:18px;padding:1.25rem;
+  font-size:.95rem;box-shadow:0 0 60px rgba(139,92,246,.35)}
+.prompt .bar{display:flex;gap:.4rem;margin-bottom:1rem}
+.prompt .bar i{width:.7rem;height:.7rem;border-radius:50%;background:#3B2F6B}
+.prompt .tag{display:inline-block;font-weight:700;font-size:.8rem;background:var(--violet2);padding:.15rem .6rem;border-radius:6px;margin-bottom:.5rem}
+.prompt p{margin-bottom:1rem;max-width:none}
+.prompt .out{border-top:1px solid var(--line);padding-top:1rem;color:#fff}
+.prompt .out .tag{background:var(--glow);color:#1E1042}
+.problem{background:linear-gradient(135deg,rgba(109,40,217,.55),rgba(139,92,246,.25));border-block:1px solid var(--line)}
+.problem p{font-size:1.2rem;margin-bottom:1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.item,.box,details{background:var(--card);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px)}
+.item{padding:1.5rem}
+.item p{margin-top:.4rem;color:var(--muted);font-size:1rem}
+.compare{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.box{padding:1.5rem}
+.box.good{border-color:var(--violet);box-shadow:0 0 30px rgba(139,92,246,.3)}
+.box h3{margin-bottom:.75rem}
+.box p{font-size:1rem}
+.bad p{color:var(--muted)}
+.sample{margin-top:1rem;font-size:.9rem;color:var(--muted)}
+.offer{text-align:center}
+.offer .wrap{background:rgba(14,10,30,.85);border:1px solid var(--violet);border-radius:28px;padding:3rem 1.5rem;max-width:660px;
+  box-shadow:0 0 80px rgba(139,92,246,.35)}
+.offer h2,.offer p{margin-inline:auto}
+.old{text-decoration:line-through;color:var(--muted)}
+.price{font:800 clamp(3rem,10vw,4.5rem)/1 var(--display);color:var(--glow);margin:.5rem 0 1.5rem;text-shadow:0 0 30px rgba(139,92,246,.7)}
+.offer ul{list-style:none;padding:0;margin:0 auto 2rem;max-width:34ch;text-align:left}
+.offer li{padding:.35rem 0 .35rem 1.75rem;position:relative}
+.offer li::before{content:"";position:absolute;left:0;top:.8rem;width:.9rem;height:.5rem;
+  border-left:3px solid var(--glow);border-bottom:3px solid var(--glow);transform:rotate(-45deg)}
+.pix{display:grid;gap:1.5rem;justify-items:center;border-top:1px solid var(--line);padding-top:2rem;text-align:center}
+.qr{width:min(260px,70vw);border-radius:14px;overflow:hidden;box-shadow:0 0 40px rgba(139,92,246,.5)}
+.qr svg{display:block;width:100%;height:auto}
+.pix h3{font-size:1.4rem}
+.pix p{color:var(--muted)}
+.pix textarea{width:100%;max-width:420px;height:5.5rem;resize:none;background:#0E0A1E;color:var(--ink);
+  border:1px solid var(--line);border-radius:10px;padding:.75rem;font:.8rem/1.4 ui-monospace,monospace;word-break:break-all}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+#msg{min-height:1.4em;font-size:.95rem;color:var(--glow)}
+details{padding:1.1rem 1.25rem;margin-bottom:.75rem}
+summary{cursor:pointer;font-weight:700}
+details p{margin-top:.75rem;color:var(--muted)}
+footer.site{padding:2rem 1.25rem;text-align:center;font-size:.9rem;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>A IA escreve. Você precisa saber o que pedir.</h1>
+      <p class="lead">Kit com modelos de currículo, perfil de LinkedIn e preparo para entrevista, com comandos prontos para colar na IA e adaptar à sua vaga.</p>
+      <!-- EDITE AQUI: troque o # pelo link de checkout (Hotmart, Kiwify, Eduzz...) -->
+      <a class="btn" href="#oferta">Quero o kit</a>
+      <span class="note">Pagamento por Pix. Funciona com ChatGPT, Gemini, Claude e similares.</span>
+    </div>
+    <div class="prompt" aria-label="Exemplo de comando e resposta">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <span class="tag">Comando do kit</span>
+      <p>Reescreva minha experiência como atendente para a vaga de [vaga], destacando resultados e usando as palavras-chave do anúncio.</p>
+      <div class="out">
+        <span class="tag">Resultado</span>
+        <p>Atendi em média 60 clientes por dia, reduzindo o tempo de espera e mantendo nota 4,8 na avaliação do cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMA ===== -->
+<section class="problem">
+  <div class="wrap">
+    <h2>Todo mundo usa a IA, mas poucos recebem um bom resultado</h2>
+    <p>Quem digita "faça meu currículo" recebe um texto genérico, igual ao de milhares de candidatos. O recrutador percebe, e o seu perfil se perde no meio.</p>
+    <p>A diferença está em <strong>o que você pede, com quais informações e para qual vaga</strong>. O kit entrega isso pronto.</p>
+  </div>
+</section>
+
+<!-- ===== O QUE VEM NO KIT ===== -->
+<section>
+  <div class="wrap">
+    <h2>O que vem no kit</h2>
+    <div class="grid">
+      <div class="item"><h3>5 modelos de currículo</h3><p>Em Word e Google Docs, simples e fáceis de ler, para primeiro emprego, mudança de área e experiência.</p></div>
+      <div class="item"><h3>40 comandos prontos</h3><p>Para escrever, melhorar e adaptar o currículo e a carta de apresentação a cada vaga.</p></div>
+      <div class="item"><h3>Guia de LinkedIn</h3><p>Como montar título, resumo e experiências para ser encontrado por recrutadores.</p></div>
+      <div class="item"><h3>Treino de entrevista</h3><p>Perguntas comuns, respostas-modelo e um comando para a IA simular a entrevista com você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTES / DEPOIS ===== -->
+<section>
+  <div class="wrap">
+    <h2>A diferença na prática</h2>
+    <div class="compare">
+      <div class="box bad">
+        <h3>Pedido genérico</h3>
+        <p>"Responsável por atendimento ao cliente e vendas. Sou comunicativo e proativo."</p>
+      </div>
+      <div class="box good">
+        <h3>Com o comando do kit</h3>
+        <p>"Atendi 60 clientes por dia, aumentei as vendas adicionais em 15% e mantive nota 4,8 nas avaliações."</p>
+      </div>
+    </div>
+    <p class="sample">Exemplo ilustrativo. Os números mudam conforme a sua experiência real.</p>
+  </div>
+</section>
+
+<!-- ===== OFERTA ===== -->
+<section class="offer" id="oferta">
+  <div class="wrap">
+    <h2>Tudo para se candidatar com mais confiança</h2>
+    <p class="old">De R$ 67,00</p>
+    <div class="price">R$ 29,90</div>
+    <ul>
+      <li>5 modelos de currículo editáveis</li>
+      <li>40 comandos prontos para a IA</li>
+      <li>Guia de LinkedIn</li>
+      <li>Treino de entrevista</li>
+      <li>Atualizações gratuitas</li>
+    </ul>
+    <div class="pix">
+      <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 49" shape-rendering="crispEdges" role="img" aria-label="QR code Pix de R$ 29,90"><rect width="100%" height="100%" fill="#fff"/><path d="M4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM7,4h1v1h-1zM8,4h1v1h-1zM9,4h1v1h-1zM10,4h1v1h-1zM14,4h1v1h-1zM15,4h1v1h-1zM16,4h1v1h-1zM17,4h1v1h-1zM19,4h1v1h-1zM20,4h1v1h-1zM22,4h1v1h-1zM23,4h1v1h-1zM24,4h1v1h-1zM25,4h1v1h-1zM26,4h1v1h-1zM28,4h1v1h-1zM30,4h1v1h-1zM33,4h1v1h-1zM38,4h1v1h-1zM39,4h1v1h-1zM40,4h1v1h-1zM41,4h1v1h-1zM42,4h1v1h-1zM43,4h1v1h-1zM44,4h1v1h-1zM4,5h1v1h-1zM10,5h1v1h-1zM12,5h1v1h-1zM13,5h1v1h-1zM14,5h1v1h-1zM15,5h1v1h-1zM21,5h1v1h-1zM23,5h1v1h-1zM24,5h1v1h-1zM26,5h1v1h-1zM27,5h1v1h-1zM28,5h1v1h-1zM29,5h1v1h-1zM32,5h1v1h-1zM35,5h1v1h-1zM36,5h1v1h-1zM38,5h1v1h-1zM44,5h1v1h-1zM4,6h1v1h-1zM6,6h1v1h-1zM7,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM13,6h1v1h-1zM16,6h1v1h-1zM17,6h1v1h-1zM18,6h1v1h-1zM23,6h1v1h-1zM24,6h1v1h-1zM25,6h1v1h-1zM26,6h1v1h-1zM28,6h1v1h-1zM38,6h1v1h-1zM40,6h1v1h-1zM41,6h1v1h-1zM42,6h1v1h-1zM44,6h1v1h-1zM4,7h1v1h-1zM6,7h1v1h-1zM7,7h1v1h-1zM8,7h1v1h-1zM10,7h1v1h-1zM13,7h1v1h-1zM14,7h1v1h-1zM15,7h1v1h-1zM16,7h1v1h-1zM17,7h1v1h-1zM19,7h1v1h-1zM20,7h1v1h-1zM21,7h1v1h-1zM24,7h1v1h-1zM25,7h1v1h-1zM26,7h1v1h-1zM27,7h1v1h-1zM28,7h1v1h-1zM29,7h1v1h-1zM31,7h1v1h-1zM33,7h1v1h-1zM34,7h1v1h-1zM36,7h1v1h-1zM38,7h1v1h-1zM40,7h1v1h-1zM41,7h1v1h-1zM42,7h1v1h-1zM44,7h1v1h-1zM4,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM15,8h1v1h-1zM18,8h1v1h-1zM23,8h1v1h-1zM24,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM32,8h1v1h-1zM35,8h1v1h-1zM36,8h1v1h-1zM38,8h1v1h-1zM40,8h1v1h-1zM41,8h1v1h-1zM42,8h1v1h-1zM44,8h1v1h-1zM4,9h1v1h-1zM10,9h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM16,9h1v1h-1zM17,9h1v1h-1zM19,9h1v1h-1zM21,9h1v1h-1zM24,9h1v1h-1zM25,9h1v1h-1zM26,9h1v1h-1zM28,9h1v1h-1zM31,9h1v1h-1zM33,9h1v1h-1zM38,9h1v1h-1zM44,9h1v1h-1zM4,10h1v1h-1zM5,10h1v1h-1zM6,10h1v1h-1zM7,10h1v1h-1zM8,10h1v1h-1zM9,10h1v1h-1zM10,10h1v1h-1zM12,10h1v1h-1zM14,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM20,10h1v1h-1zM22,10h1v1h-1zM24,10h1v1h-1zM26,10h1v1h-1zM28,10h1v1h-1zM30,10h1v1h-1zM32,10h1v1h-1zM34,10h1v1h-1zM36,10h1v1h-1zM38,10h1v1h-1zM39,10h1v1h-1zM40,10h1v1h-1zM41,10h1v1h-1zM42,10h1v1h-1zM43,10h1v1h-1zM44,10h1v1h-1zM16,11h1v1h-1zM17,11h1v1h-1zM18,11h1v1h-1zM19,11h1v1h-1zM21,11h1v1h-1zM23,11h1v1h-1zM26,11h1v1h-1zM27,11h1v1h-1zM31,11h1v1h-1zM34,11h1v1h-1zM35,11h1v1h-1zM4,12h1v1h-1zM6,12h1v1h-1zM8,12h1v1h-1zM10,12h1v1h-1zM19,12h1v1h-1zM20,12h1v1h-1zM22,12h1v1h-1zM23,12h1v1h-1zM25,12h1v1h-1zM26,12h1v1h-1zM27,12h1v1h-1zM28,12h1v1h-1zM30,12h1v1h-1zM32,12h1v1h-1zM34,12h1v1h-1zM36,12h1v1h-1zM40,12h1v1h-1zM43,12h1v1h-1zM4,13h1v1h-1zM5,13h1v1h-1zM13,13h1v1h-1zM14,13h1v1h-1zM15,13h1v1h-1zM18,13h1v1h-1zM25,13h1v1h-1zM28,13h1v1h-1zM29,13h1v1h-1zM32,13h1v1h-1zM35,13h1v1h-1zM36,13h1v1h-1zM37,13h1v1h-1zM39,13h1v1h-1zM41,13h1v1h-1zM43,13h1v1h-1zM5,14h1v1h-1zM9,14h1v1h-1zM10,14h1v1h-1zM14,14h1v1h-1zM18,14h1v1h-1zM21,14h1v1h-1zM23,14h1v1h-1zM24,14h1v1h-1zM25,14h1v1h-1zM26,14h1v1h-1zM27,14h1v1h-1zM30,14h1v1h-1zM32,14h1v1h-1zM33,14h1v1h-1zM35,14h1v1h-1zM38,14h1v1h-1zM40,14h1v1h-1zM42,14h1v1h-1zM43,14h1v1h-1zM4,15h1v1h-1zM5,15h1v1h-1zM6,15h1v1h-1zM11,15h1v1h-1zM15,15h1v1h-1zM16,15h1v1h-1zM17,15h1v1h-1zM18,15h1v1h-1zM20,15h1v1h-1zM21,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM24,15h1v1h-1zM25,15h1v1h-1zM28,15h1v1h-1zM29,15h1v1h-1zM31,15h1v1h-1zM33,15h1v1h-1zM35,15h1v1h-1zM36,15h1v1h-1zM37,15h1v1h-1zM41,15h1v1h-1zM4,16h1v1h-1zM6,16h1v1h-1zM7,16h1v1h-1zM10,16h1v1h-1zM12,16h1v1h-1zM15,16h1v1h-1zM18,16h1v1h-1zM20,16h1v1h-1zM21,16h1v1h-1zM22,16h1v1h-1zM24,16h1v1h-1zM25,16h1v1h-1zM26,16h1v1h-1zM30,16h1v1h-1zM32,16h1v1h-1zM33,16h1v1h-1zM34,16h1v1h-1zM36,16h1v1h-1zM37,16h1v1h-1zM38,16h1v1h-1zM42,16h1v1h-1zM44,16h1v1h-1zM6,17h1v1h-1zM7,17h1v1h-1zM8,17h1v1h-1zM9,17h1v1h-1zM12,17h1v1h-1zM14,17h1v1h-1zM15,17h1v1h-1zM17,17h1v1h-1zM18,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM22,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM27,17h1v1h-1zM29,17h1v1h-1zM31,17h1v1h-1zM32,17h1v1h-1zM33,17h1v1h-1zM34,17h1v1h-1zM35,17h1v1h-1zM41,17h1v1h-1zM42,17h1v1h-1zM43,17h1v1h-1zM5,18h1v1h-1zM6,18h1v1h-1zM10,18h1v1h-1zM13,18h1v1h-1zM14,18h1v1h-1zM16,18h1v1h-1zM19,18h1v1h-1zM20,18h1v1h-1zM22,18h1v1h-1zM23,18h1v1h-1zM24,18h1v1h-1zM25,18h1v1h-1zM31,18h1v1h-1zM32,18h1v1h-1zM34,18h1v1h-1zM35,18h1v1h-1zM38,18h1v1h-1zM42,18h1v1h-1zM44,18h1v1h-1zM5,19h1v1h-1zM6,19h1v1h-1zM12,19h1v1h-1zM13,19h1v1h-1zM14,19h1v1h-1zM21,19h1v1h-1zM22,19h1v1h-1zM24,19h1v1h-1zM25,19h1v1h-1zM27,19h1v1h-1zM29,19h1v1h-1zM32,19h1v1h-1zM34,19h1v1h-1zM37,19h1v1h-1zM42,19h1v1h-1zM43,19h1v1h-1zM5,20h1v1h-1zM8,20h1v1h-1zM9,20h1v1h-1zM10,20h1v1h-1zM12,20h1v1h-1zM13,20h1v1h-1zM14,20h1v1h-1zM17,20h1v1h-1zM18,20h1v1h-1zM19,20h1v1h-1zM20,20h1v1h-1zM21,20h1v1h-1zM22,20h1v1h-1zM23,20h1v1h-1zM26,20h1v1h-1zM28,20h1v1h-1zM29,20h1v1h-1zM31,20h1v1h-1zM32,20h1v1h-1zM34,20h1v1h-1zM38,20h1v1h-1zM40,20h1v1h-1zM43,20h1v1h-1zM44,20h1v1h-1zM4,21h1v1h-1zM7,21h1v1h-1zM13,21h1v1h-1zM17,21h1v1h-1zM19,21h1v1h-1zM20,21h1v1h-1zM24,21h1v1h-1zM25,21h1v1h-1zM31,21h1v1h-1zM32,21h1v1h-1zM33,21h1v1h-1zM34,21h1v1h-1zM37,21h1v1h-1zM41,21h1v1h-1zM43,21h1v1h-1zM44,21h1v1h-1zM5,22h1v1h-1zM6,22h1v1h-1zM7,22h1v1h-1zM8,22h1v1h-1zM10,22h1v1h-1zM12,22h1v1h-1zM13,22h1v1h-1zM16,22h1v1h-1zM17,22h1v1h-1zM18,22h1v1h-1zM19,22h1v1h-1zM20,22h1v1h-1zM21,22h1v1h-1zM23,22h1v1h-1zM26,22h1v1h-1zM27,22h1v1h-1zM29,22h1v1h-1zM34,22h1v1h-1zM37,22h1v1h-1zM38,22h1v1h-1zM40,22h1v1h-1zM41,22h1v1h-1zM42,22h1v1h-1zM43,22h1v1h-1zM44,22h1v1h-1zM5,23h1v1h-1zM7,23h1v1h-1zM11,23h1v1h-1zM12,23h1v1h-1zM13,23h1v1h-1zM14,23h1v1h-1zM16,23h1v1h-1zM17,23h1v1h-1zM18,23h1v1h-1zM23,23h1v1h-1zM25,23h1v1h-1zM26,23h1v1h-1zM27,23h1v1h-1zM33,23h1v1h-1zM35,23h1v1h-1zM36,23h1v1h-1zM37,23h1v1h-1zM39,23h1v1h-1zM41,23h1v1h-1zM43,23h1v1h-1zM4,24h1v1h-1zM7,24h1v1h-1zM10,24h1v1h-1zM15,24h1v1h-1zM16,24h1v1h-1zM19,24h1v1h-1zM23,24h1v1h-1zM26,24h1v1h-1zM27,24h1v1h-1zM32,24h1v1h-1zM34,24h1v1h-1zM38,24h1v1h-1zM6,25h1v1h-1zM7,25h1v1h-1zM12,25h1v1h-1zM13,25h1v1h-1zM14,25h1v1h-1zM16,25h1v1h-1zM17,25h1v1h-1zM21,25h1v1h-1zM23,25h1v1h-1zM26,25h1v1h-1zM27,25h1v1h-1zM29,25h1v1h-1zM31,25h1v1h-1zM33,25h1v1h-1zM37,25h1v1h-1zM38,25h1v1h-1zM40,25h1v1h-1zM41,25h1v1h-1zM43,25h1v1h-1zM7,26h1v1h-1zM9,26h1v1h-1zM10,26h1v1h-1zM11,26h1v1h-1zM12,26h1v1h-1zM14,26h1v1h-1zM21,26h1v1h-1zM22,26h1v1h-1zM26,26h1v1h-1zM27,26h1v1h-1zM29,26h1v1h-1zM30,26h1v1h-1zM32,26h1v1h-1zM34,26h1v1h-1zM37,26h1v1h-1zM39,26h1v1h-1zM42,26h1v1h-1zM4,27h1v1h-1zM5,27h1v1h-1zM6,27h1v1h-1zM9,27h1v1h-1zM14,27h1v1h-1zM15,27h1v1h-1zM17,27h1v1h-1zM19,27h1v1h-1zM21,27h1v1h-1zM24,27h1v1h-1zM27,27h1v1h-1zM31,27h1v1h-1zM33,27h1v1h-1zM35,27h1v1h-1zM39,27h1v1h-1zM41,27h1v1h-1zM43,27h1v1h-1zM44,27h1v1h-1zM4,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM9,28h1v1h-1zM10,28h1v1h-1zM13,28h1v1h-1zM15,28h1v1h-1zM17,28h1v1h-1zM19,28h1v1h-1zM22,28h1v1h-1zM26,28h1v1h-1zM29,28h1v1h-1zM30,28h1v1h-1zM32,28h1v1h-1zM36,28h1v1h-1zM37,28h1v1h-1zM38,28h1v1h-1zM39,28h1v1h-1zM40,28h1v1h-1zM44,28h1v1h-1zM5,29h1v1h-1zM7,29h1v1h-1zM8,29h1v1h-1zM14,29h1v1h-1zM15,29h1v1h-1zM16,29h1v1h-1zM17,29h1v1h-1zM18,29h1v1h-1zM19,29h1v1h-1zM21,29h1v1h-1zM25,29h1v1h-1zM26,29h1v1h-1zM27,29h1v1h-1zM28,29h1v1h-1zM29,29h1v1h-1zM30,29h1v1h-1zM31,29h1v1h-1zM35,29h1v1h-1zM40,29h1v1h-1zM41,29h1v1h-1zM43,29h1v1h-1zM4,30h1v1h-1zM7,30h1v1h-1zM10,30h1v1h-1zM12,30h1v1h-1zM13,30h1v1h-1zM14,30h1v1h-1zM15,30h1v1h-1zM16,30h1v1h-1zM18,30h1v1h-1zM21,30h1v1h-1zM22,30h1v1h-1zM23,30h1v1h-1zM25,30h1v1h-1zM28,30h1v1h-1zM29,30h1v1h-1zM30,30h1v1h-1zM32,30h1v1h-1zM34,30h1v1h-1zM36,30h1v1h-1zM39,30h1v1h-1zM40,30h1v1h-1zM42,30h1v1h-1zM44,30h1v1h-1zM5,31h1v1h-1zM7,31h1v1h-1zM8,31h1v1h-1zM11,31h1v1h-1zM13,31h1v1h-1zM14,31h1v1h-1zM18,31h1v1h-1zM20,31h1v1h-1zM23,31h1v1h-1zM24,31h1v1h-1zM25,31h1v1h-1zM27,31h1v1h-1zM28,31h1v1h-1zM30,31h1v1h-1zM31,31h1v1h-1zM38,31h1v1h-1zM39,31h1v1h-1zM41,31h1v1h-1zM43,31h1v1h-1zM5,32h1v1h-1zM7,32h1v1h-1zM8,32h1v1h-1zM9,32h1v1h-1zM10,32h1v1h-1zM14,32h1v1h-1zM15,32h1v1h-1zM16,32h1v1h-1zM17,32h1v1h-1zM18,32h1v1h-1zM19,32h1v1h-1zM21,32h1v1h-1zM22,32h1v1h-1zM23,32h1v1h-1zM25,32h1v1h-1zM26,32h1v1h-1zM28,32h1v1h-1zM30,32h1v1h-1zM32,32h1v1h-1zM36,32h1v1h-1zM40,32h1v1h-1zM42,32h1v1h-1zM44,32h1v1h-1zM8,33h1v1h-1zM12,33h1v1h-1zM13,33h1v1h-1zM14,33h1v1h-1zM15,33h1v1h-1zM16,33h1v1h-1zM21,33h1v1h-1zM23,33h1v1h-1zM25,33h1v1h-1zM27,33h1v1h-1zM28,33h1v1h-1zM30,33h1v1h-1zM31,33h1v1h-1zM33,33h1v1h-1zM35,33h1v1h-1zM36,33h1v1h-1zM37,33h1v1h-1zM40,33h1v1h-1zM41,33h1v1h-1zM42,33h1v1h-1zM43,33h1v1h-1zM44,33h1v1h-1zM4,34h1v1h-1zM7,34h1v1h-1zM10,34h1v1h-1zM11,34h1v1h-1zM13,34h1v1h-1zM14,34h1v1h-1zM15,34h1v1h-1zM17,34h1v1h-1zM18,34h1v1h-1zM19,34h1v1h-1zM21,34h1v1h-1zM22,34h1v1h-1zM26,34h1v1h-1zM27,34h1v1h-1zM28,34h1v1h-1zM30,34h1v1h-1zM32,34h1v1h-1zM33,34h1v1h-1zM34,34h1v1h-1zM36,34h1v1h-1zM39,34h1v1h-1zM41,34h1v1h-1zM42,34h1v1h-1zM5,35h1v1h-1zM6,35h1v1h-1zM9,35h1v1h-1zM13,35h1v1h-1zM15,35h1v1h-1zM16,35h1v1h-1zM17,35h1v1h-1zM18,35h1v1h-1zM19,35h1v1h-1zM21,35h1v1h-1zM23,35h1v1h-1zM28,35h1v1h-1zM29,35h1v1h-1zM30,35h1v1h-1zM31,35h1v1h-1zM33,35h1v1h-1zM35,35h1v1h-1zM36,35h1v1h-1zM37,35h1v1h-1zM39,35h1v1h-1zM41,35h1v1h-1zM44,35h1v1h-1zM4,36h1v1h-1zM10,36h1v1h-1zM12,36h1v1h-1zM13,36h1v1h-1zM14,36h1v1h-1zM17,36h1v1h-1zM19,36h1v1h-1zM21,36h1v1h-1zM22,36h1v1h-1zM27,36h1v1h-1zM30,36h1v1h-1zM31,36h1v1h-1zM32,36h1v1h-1zM34,36h1v1h-1zM36,36h1v1h-1zM37,36h1v1h-1zM38,36h1v1h-1zM39,36h1v1h-1zM40,36h1v1h-1zM41,36h1v1h-1zM44,36h1v1h-1zM12,37h1v1h-1zM13,37h1v1h-1zM18,37h1v1h-1zM19,37h1v1h-1zM21,37h1v1h-1zM24,37h1v1h-1zM26,37h1v1h-1zM27,37h1v1h-1zM29,37h1v1h-1zM31,37h1v1h-1zM32,37h1v1h-1zM36,37h1v1h-1zM40,37h1v1h-1zM41,37h1v1h-1zM44,37h1v1h-1zM4,38h1v1h-1zM5,38h1v1h-1zM6,38h1v1h-1zM7,38h1v1h-1zM8,38h1v1h-1zM9,38h1v1h-1zM10,38h1v1h-1zM13,38h1v1h-1zM14,38h1v1h-1zM19,38h1v1h-1zM20,38h1v1h-1zM22,38h1v1h-1zM23,38h1v1h-1zM25,38h1v1h-1zM27,38h1v1h-1zM28,38h1v1h-1zM30,38h1v1h-1zM35,38h1v1h-1zM36,38h1v1h-1zM38,38h1v1h-1zM40,38h1v1h-1zM42,38h1v1h-1zM43,38h1v1h-1zM44,38h1v1h-1zM4,39h1v1h-1zM10,39h1v1h-1zM13,39h1v1h-1zM14,39h1v1h-1zM15,39h1v1h-1zM17,39h1v1h-1zM18,39h1v1h-1zM21,39h1v1h-1zM22,39h1v1h-1zM27,39h1v1h-1zM29,39h1v1h-1zM30,39h1v1h-1zM31,39h1v1h-1zM33,39h1v1h-1zM35,39h1v1h-1zM36,39h1v1h-1zM40,39h1v1h-1zM41,39h1v1h-1zM42,39h1v1h-1zM43,39h1v1h-1zM4,40h1v1h-1zM6,40h1v1h-1zM7,40h1v1h-1zM8,40h1v1h-1zM10,40h1v1h-1zM12,40h1v1h-1zM13,40h1v1h-1zM15,40h1v1h-1zM16,40h1v1h-1zM17,40h1v1h-1zM18,40h1v1h-1zM19,40h1v1h-1zM22,40h1v1h-1zM24,40h1v1h-1zM28,40h1v1h-1zM30,40h1v1h-1zM32,40h1v1h-1zM33,40h1v1h-1zM35,40h1v1h-1zM36,40h1v1h-1zM37,40h1v1h-1zM38,40h1v1h-1zM39,40h1v1h-1zM40,40h1v1h-1zM43,40h1v1h-1zM4,41h1v1h-1zM6,41h1v1h-1zM7,41h1v1h-1zM8,41h1v1h-1zM10,41h1v1h-1zM13,41h1v1h-1zM16,41h1v1h-1zM19,41h1v1h-1zM20,41h1v1h-1zM22,41h1v1h-1zM23,41h1v1h-1zM27,41h1v1h-1zM30,41h1v1h-1zM33,41h1v1h-1zM35,41h1v1h-1zM37,41h1v1h-1zM39,41h1v1h-1zM41,41h1v1h-1zM42,41h1v1h-1zM43,41h1v1h-1zM4,42h1v1h-1zM6,42h1v1h-1zM7,42h1v1h-1zM8,42h1v1h-1zM10,42h1v1h-1zM12,42h1v1h-1zM13,42h1v1h-1zM14,42h1v1h-1zM16,42h1v1h-1zM20,42h1v1h-1zM25,42h1v1h-1zM28,42h1v1h-1zM29,42h1v1h-1zM30,42h1v1h-1zM32,42h1v1h-1zM33,42h1v1h-1zM35,42h1v1h-1zM38,42h1v1h-1zM40,42h1v1h-1zM42,42h1v1h-1zM43,42h1v1h-1zM44,42h1v1h-1zM4,43h1v1h-1zM10,43h1v1h-1zM13,43h1v1h-1zM18,43h1v1h-1zM19,43h1v1h-1zM22,43h1v1h-1zM23,43h1v1h-1zM24,43h1v1h-1zM26,43h1v1h-1zM27,43h1v1h-1zM30,43h1v1h-1zM31,43h1v1h-1zM38,43h1v1h-1zM39,43h1v1h-1zM41,43h1v1h-1zM43,43h1v1h-1zM44,43h1v1h-1zM4,44h1v1h-1zM5,44h1v1h-1zM6,44h1v1h-1zM7,44h1v1h-1zM8,44h1v1h-1zM9,44h1v1h-1zM10,44h1v1h-1zM12,44h1v1h-1zM14,44h1v1h-1zM15,44h1v1h-1zM16,44h1v1h-1zM17,44h1v1h-1zM20,44h1v1h-1zM23,44h1v1h-1zM25,44h1v1h-1zM26,44h1v1h-1zM30,44h1v1h-1zM32,44h1v1h-1zM34,44h1v1h-1zM39,44h1v1h-1zM40,44h1v1h-1zM42,44h1v1h-1zM44,44h1v1h-1z" fill="#000"/></svg></div>
+      <div>
+        <h3>Pague com Pix</h3>
+        <p>Abra o app do seu banco, escolha Pix e escaneie o QR code. O valor de R$ 29,90 já vem preenchido.</p>
+      </div>
+      <textarea id="code" readonly aria-label="Código Pix copia e cola">00020101021126360014BR.GOV.BCB.PIX0114+5589994236525520400005303986540529.905802BR5918KIT EMPREGO COM IA6006SIMOES62070503***6304106D</textarea>
+      <div class="actions">
+        <button class="btn" type="button" id="copy">Copiar código Pix</button>
+        <!-- EDITE AQUI: confira se este é mesmo o seu WhatsApp -->
+        <a class="btn ghost" href="https://wa.me/5589994236525?text=Oi!%20Fiz%20o%20Pix%20do%20Kit%20Emprego%20com%20IA.%20Segue%20o%20comprovante." target="_blank" rel="noopener">Enviar comprovante</a>
+      </div>
+      <span id="msg" role="status"></span>
+      <p class="note">Depois de pagar, envie o comprovante pelo WhatsApp e você recebe o material. 7 dias de garantia: se não gostar, devolvemos o valor.</p>
+    </div>
+    <script>
+    document.getElementById("copy").addEventListener("click",function(){
+      var t=document.getElementById("code"),m=document.getElementById("msg");
+      t.select();
+      var ok=function(){m.textContent="Código copiado. Cole no app do seu banco."};
+      if(navigator.clipboard){navigator.clipboard.writeText(t.value).then(ok,function(){document.execCommand("copy");ok()})}
+      else{document.execCommand("copy");ok()}
+    });
+    </script>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section>
+  <div class="wrap">
+    <h2>Dúvidas comuns</h2>
+    <details><summary>Preciso pagar alguma IA?</summary><p>Não. Os comandos funcionam nas versões gratuitas das principais ferramentas.</p></details>
+    <details><summary>Serve para quem nunca teve emprego?</summary><p>Sim. Há um modelo e comandos específicos para primeiro emprego e para quem tem pouca experiência.</p></details>
+    <details><summary>Isso garante que vou ser contratado?</summary><p>Não. O kit melhora a forma como você se apresenta, mas a contratação depende da vaga, da concorrência e da entrevista.</p></details>
+    <details><summary>Como recebo o material?</summary><p>Depois de pagar por Pix, envie o comprovante pelo WhatsApp e você recebe o link de download.</p></details>
+  </div>
+</section>
+
+<footer class="site">
+  Kit Emprego com IA
+</footer>
+
+</body>
+</html>
